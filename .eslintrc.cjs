@@ -10,5 +10,12 @@ module.exports = {
   rules: {
     'no-console': [0],
   },
-  overrides: [],
+  overrides: [
+    {
+      files: ['projects/backend/**/*.ts'],
+      rules: {
+        '@typescript-eslint/consistent-type-imports': 'off',
+      },
+    },
+  ],
 }

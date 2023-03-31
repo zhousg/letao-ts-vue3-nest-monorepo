@@ -6,6 +6,7 @@
   "scripts": {
     "dev:h5": "vite projects/frontend-h5",
     "build:h5": "vite build projects/frontend-h5",
+    "dev:nest": "pnpm -F backend start:dev",
     "lint": "eslint . --fix",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "lint-staged": "lint-staged",
