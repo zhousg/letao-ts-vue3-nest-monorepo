@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-standard",
+  "customSyntax": "postcss-html",
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "baseIndentLevel": 1
+      }
+    ],
+    "declaration-block-semicolon-newline-after": "always"
+  }
+}

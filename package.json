@@ -1,0 +1,48 @@
+{
+  "name": "letao-ts-vue3-nest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:h5": "vite projects/frontend-h5",
+    "build:h5": "vite build projects/frontend-h5",
+    "lint": "eslint . --fix",
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,html}": [
+      "eslint --fix"
+    ],
+    "*.{html,vue,css,scss,less}": [
+      "stylelint --fix"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@letao/utils": "workspace:*",
+    "axios": "^1.3.4",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.2",
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@types/node": "^18.15.11",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.37.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.0",
+    "postcss": "^8.4.21",
+    "postcss-html": "^1.5.0",
+    "sass": "^1.60.0",
+    "stylelint": "^15.3.0",
+    "stylelint-config-standard": "^31.0.0",
+    "typescript": "^5.0.3",
+    "vite": "^4.2.1"
+  }
+}
