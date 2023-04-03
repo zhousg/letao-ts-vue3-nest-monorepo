@@ -12,5 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "unplugin-vue-components": "^0.24.1"
+  },
+  "dependencies": {
+    "vant": "^4.1.2"
   }
 }

@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
-import { add } from '@letao/utils'
 import App from './App.vue'
+import router from './router'
 
-add(100, 200)
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')

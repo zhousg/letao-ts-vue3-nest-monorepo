@@ -1,5 +1,10 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Get, Post, UploadedFile, UseInterceptors } from '@nestjs/common'
+import { FileInterceptor } from '@nestjs/platform-express'
 import { AppService } from './app.service'
+
+enum FileName {
+  File = 'file',
+}
 
 @Controller()
 export class AppController {
@@ -8,5 +13,12 @@ export class AppController {
   @Get('/hello')
   getHello(): string {
     return this.appService.getHello()
+  }
+
+  @UseInterceptors(FileInterceptor('file'))
+  @Post('/file')
+  uploadFile(@UploadedFile() file: Express.Multer.File,
+  ) {
+    return { name: file.originalname, path: `assets/${file.filename}` }
   }
 }
