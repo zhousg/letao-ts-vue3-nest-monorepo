@@ -1,29 +1,33 @@
 {
   "include": [ 
     "libs", 
-    "projects", 
     "projects/**/*.vue",
-    "projects/**/*.ts", 
+    "projects/**/*.ts"
   ],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@letao/utils": ["./libs/utils/index.ts"],
+      "@letao/types": ["./libs/utils/index.d.ts"]
+    },
+    "lib": [
+      "ES2016",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": ["node"],
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "useDefineForClassFields": true,
     "jsx": "preserve",
     "noImplicitThis": true,
     "strict": true,
-    "isolatedModules": true,
-    "preserveValueImports": true,
-    "importsNotUsedAsValues": "error",
     "target": "ESNext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@letao/utils": ["./libs/utils/index.ts"]
-    }
+    "composite": true,
+    "verbatimModuleSyntax": true
   }
 }

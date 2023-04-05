@@ -37,9 +37,9 @@ import { UserModule } from './users/user.module'
           },
         }),
         fileFilter(req, file, cb) {
-          if (file.mimetype.startsWith('image'))
-            return cb(null, true)
-          cb(new BadRequestException('支持jpg、png、gif格式图片'), false)
+          if (!file.mimetype.startsWith('image'))
+            cb(new BadRequestException('支持jpg、png、gif格式图片'), false)
+          return cb(null, true)
         },
       }),
     }),

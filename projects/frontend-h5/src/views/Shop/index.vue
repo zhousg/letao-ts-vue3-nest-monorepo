@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <router-view />
+  <div class="cart-page">
+    shop
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

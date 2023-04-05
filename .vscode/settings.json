@@ -8,6 +8,8 @@
     "stylelint",
     "typeorm",
     "unplugin",
-    "Vant"
-  ]
+    "Vant",
+    "tabbar"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

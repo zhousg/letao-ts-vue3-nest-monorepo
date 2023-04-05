@@ -1,5 +1,5 @@
 {
-  "name": "frontend-h5",
+  "name": "frontend-admin",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -9,11 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "postcss-px-to-viewport": "^1.1.1",
-    "vite-plugin-html": "^3.2.0"
-  },
   "dependencies": {
-    "vant": "^4.1.2"
+    "@element-plus/icons-vue": "^2.1.0",
+    "element-plus": "^2.3.2"
   }
 }
