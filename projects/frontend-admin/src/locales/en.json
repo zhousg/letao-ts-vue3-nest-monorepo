@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "dashboard": "Dashboard",
+    "product": "Product",
+    "category": "Category",
+    "picture": "Picture",
+    "goods": "Goods",
+    "employee": "Employee",
+    "user": "User",
+    "settings": "Settings"
+  },
+  "sys": {
+    "logout": "Logout",
+    "copyright": "ITCAST",
+    "reset": "Reset",
+    "themeColor": "ThemeColor",
+    "dark": "DarkMode",
+    "settings": "Settings"
+  }
+}

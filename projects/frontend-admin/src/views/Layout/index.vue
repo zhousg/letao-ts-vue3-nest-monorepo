@@ -1,45 +1,27 @@
 <script setup lang="ts">
-import { FullScreen, Search, Setting, SwitchButton } from '@element-plus/icons-vue'
+import { SwitchButton } from '@element-plus/icons-vue'
 import LayoutMenu from './components/LayoutMenu.vue'
+import LayoutHeader from './components/LayoutHeader.vue'
 </script>
 
 <template>
   <el-container class="layout">
     <el-aside>
       <div class="logo">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-LOGO" />
-        </svg>
+        <LeIcon name="logo" />
       </div>
       <LayoutMenu class="menu" />
       <a href="javascript:;" class="logout">
         <el-icon><SwitchButton /></el-icon>
-        <span>Logout</span>
+        <span>{{ $t("sys.logout") }}</span>
       </a>
     </el-aside>
     <el-container class="layout-container">
-      <el-header>
-        <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/' }">
-            LeTao
-          </el-breadcrumb-item>
-          <el-breadcrumb-item>
-            Dashboard
-          </el-breadcrumb-item>
-        </el-breadcrumb>
-        <el-row>
-          <el-button :icon="Search" circle />
-          <el-button :icon="FullScreen" circle />
-          <el-button circle>
-            <img src="@/icons/i18n.svg" alt="">
-          </el-button>
-          <el-button :icon="Setting" circle />
-        </el-row>
-      </el-header>
+      <LayoutHeader />
       <el-main> <router-view /></el-main>
       <el-footer>
         <div class="copyright">
-          Copyright © 2023-present Shugang·Zhou 传智教育
+          Copyright © 2023-present Shugang·Zhou - {{ $t('sys.copyright') }}
         </div>
       </el-footer>
     </el-container>
@@ -52,7 +34,7 @@ import LayoutMenu from './components/LayoutMenu.vue'
   .el-aside {
     width: 200px;
     user-select: none;
-    background-color: #fff;
+    background-color: var(--el-fill-color-blank);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -62,13 +44,10 @@ import LayoutMenu from './components/LayoutMenu.vue'
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
-    .icon {
-      width: 1em;
-      height: 1em;
-      vertical-align: -0.15em;
-      fill: currentColor;
-      overflow: hidden;
+    .le-icon {
+      font-size: 100px;
+      height: 60px;
+      color: var(--primary-dull);
     }
   }
   .menu {
@@ -85,11 +64,6 @@ import LayoutMenu from './components/LayoutMenu.vue'
       padding-right: 5px;
       margin-top: 2px;
     }
-  }
-  .el-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
   &-container {
     .copyright {

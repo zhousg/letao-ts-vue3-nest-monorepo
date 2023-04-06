@@ -4,5 +4,9 @@
     "paths": {
       "@/*": ["./projects/frontend-admin/src/*"]
     }
-  }
+  },
+  "files": [
+    "src/locales/en.json",
+    "src/locales/zh.json"
+  ]
 }
