@@ -3,7 +3,7 @@
 <template>
   <div class="dashboard-page" style="height: 1000px">
     <el-row :gutter="20">
-      <el-col :span="6">
+      <el-col :span="6" :xs="24" :sm="12" :lg="6">
         <div class="sales">
           <h3 class="sales-title">
             Sales Volume
@@ -14,15 +14,9 @@
           </div>
         </div>
       </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple" />
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple" />
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple" />
-      </el-col>
+      <el-col :span="6" :xs="24" :sm="12" :lg="6" />
+      <el-col :span="6" :xs="24" :sm="12" :lg="6" />
+      <el-col :span="6" :xs="24" :sm="12" :lg="6" />
     </el-row>
   </div>
 </template>

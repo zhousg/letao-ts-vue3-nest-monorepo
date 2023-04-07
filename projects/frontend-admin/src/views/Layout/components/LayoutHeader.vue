@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { Bell, FullScreen, Moon, Search, Setting, Sunny } from '@element-plus/icons-vue'
+import { Bell, Expand, FullScreen, Moon, Search, Setting, Sunny } from '@element-plus/icons-vue'
 import { useDark, useFullscreen } from '@vueuse/core'
 import { ElMessage } from 'element-plus'
 import { onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ThemePicker from './ThemePicker.vue'
 import { useAppStore } from '@/stores'
+
+defineProps<{
+  isMobile: boolean
+}>()
+const emit = defineEmits<{
+  (e: 'expand'): void
+}>()
 
 const appStore = useAppStore()
 
@@ -61,37 +68,44 @@ function onReset() {
 
 <template>
   <el-header class="layout-header">
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">
-        LeTao
-      </el-breadcrumb-item>
-      <el-breadcrumb-item>
-        {{ $t("menu.dashboard") }}
-      </el-breadcrumb-item>
-    </el-breadcrumb>
+    <div class="layout-header-left">
+      <el-icon v-if="isMobile" @click="emit('expand')">
+        <Expand />
+      </el-icon>
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">
+          LeTao
+        </el-breadcrumb-item>
+        <el-breadcrumb-item>
+          {{ $t("menu.dashboard") }}
+        </el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
     <el-row>
-      <el-button :icon="Search" circle />
-      <el-button :icon="Bell" circle />
-      <el-button :icon="FullScreen" circle @click="onToggleScreen" />
-      <el-dropdown trigger="click" placement="bottom-end" @command="onToggleLang">
-        <el-button circle>
-          <LeIcon name="i18n" />
-        </el-button>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item command="en" :class="{ active: locale === 'en' }">
-              English
-            </el-dropdown-item>
-            <el-dropdown-item command="zh" :class="{ active: locale === 'zh' }">
-              中文简体
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      <template v-if="!isMobile">
+        <el-button :icon="Search" circle />
+        <el-button :icon="Bell" circle />
+        <el-button :icon="FullScreen" circle @click="onToggleScreen" />
+        <el-dropdown trigger="click" placement="bottom-end" @command="onToggleLang">
+          <el-button circle>
+            <LeIcon name="i18n" />
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="en" :class="{ active: locale === 'en' }">
+                English
+              </el-dropdown-item>
+              <el-dropdown-item command="zh" :class="{ active: locale === 'zh' }">
+                中文简体
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </template>
       <el-button :icon="Setting" circle @click="openDrawer" />
     </el-row>
   </el-header>
-  <el-drawer v-model="isShowDrawer" size="300" :title="$t('sys.settings')">
+  <el-drawer v-model="isShowDrawer" size="260" :title="$t('sys.settings')">
     <el-descriptions :column="1">
       <el-descriptions-item :label="$t('sys.dark')">
         <el-switch v-model="isDarkMode" :active-icon="Sunny" :inactive-icon="Moon" inline-prompt />
@@ -101,7 +115,7 @@ function onReset() {
       </el-descriptions-item>
     </el-descriptions>
     <template #footer>
-      <el-button type="primary" plain @click="onReset">
+      <el-button type="primary" @click="onReset">
         {{ $t("sys.reset") }}
       </el-button>
     </template>
@@ -111,14 +125,29 @@ function onReset() {
 <style lang="scss" scoped>
 .layout-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  .el-dropdown {
+  flex-wrap: wrap;
+  min-height: 60px;
+  height: auto;
+  &-left {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    .el-icon {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+  }
+  .el-row {
+    display: flex;
+    align-items: center;
+    .el-dropdown {
     margin-left: 12px;
     margin-right: 12px;
     .el-button {
       outline: none;
     }
+  }
   }
 }
 :deep() {
