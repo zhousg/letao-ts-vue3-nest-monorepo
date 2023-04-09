@@ -91,10 +91,11 @@ const isShowMenu = computed(() => isMobile.value && show.value)
     align-items: center;
     color: var(--dull);
     text-decoration: none;
+    font-size: 14px;
     .el-icon {
       padding-right: 5px;
       margin-top: 2px;
-      font-size: 18px;
+      font-size: 16px;
     }
   }
   &-container {

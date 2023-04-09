@@ -5,6 +5,7 @@ defineProps<{
   colors: string[]
   modelValue?: string
 }>()
+
 const emit = defineEmits<{
   (e: 'update:modelValue', color: string): void
 }>()
@@ -30,7 +31,6 @@ const emit = defineEmits<{
   align-items: center;
   height: 30px;
   overflow: hidden;
-  margin-top: 10px;
   &-item {
     width: 20px;
     height: 20px;

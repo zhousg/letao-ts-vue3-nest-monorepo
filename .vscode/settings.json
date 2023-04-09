@@ -3,6 +3,7 @@
     "antfu",
     "axios",
     "commitlint",
+    "echarts",
     "ITCAST",
     "letao",
     "nestjs",
@@ -12,7 +13,8 @@
     "tabbar",
     "typeorm",
     "unplugin",
-    "Vant"
+    "Vant",
+    "vueuse"
   ],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

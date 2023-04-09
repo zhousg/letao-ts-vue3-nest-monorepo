@@ -139,9 +139,15 @@ importers:
 
   projects/frontend-admin:
     dependencies:
+      '@amap/amap-jsapi-loader':
+        specifier: ^1.0.1
+        version: registry.npmmirror.com/@amap/amap-jsapi-loader@1.0.1
       '@element-plus/icons-vue':
         specifier: ^2.1.0
         version: registry.npmmirror.com/@element-plus/icons-vue@2.1.0(vue@3.2.47)
+      echarts:
+        specifier: ^5.4.2
+        version: registry.npmmirror.com/echarts@5.4.2
       element-plus:
         specifier: ^2.3.2
         version: registry.npmmirror.com/element-plus@2.3.2(vue@3.2.47)
@@ -5381,6 +5387,12 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  registry.npmmirror.com/@amap/amap-jsapi-loader@1.0.1:
+    resolution: {integrity: sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@amap/amap-jsapi-loader/-/amap-jsapi-loader-1.0.1.tgz}
+    name: '@amap/amap-jsapi-loader'
+    version: 1.0.1
+    dev: false
+
   registry.npmmirror.com/@antfu/utils@0.7.2:
     resolution: {integrity: sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@antfu/utils/-/utils-0.7.2.tgz}
     name: '@antfu/utils'
@@ -6750,6 +6762,15 @@ packages:
     version: 16.0.3
     engines: {node: '>=12'}
     dev: true
+
+  registry.npmmirror.com/echarts@5.4.2:
+    resolution: {integrity: sha512-2W3vw3oI2tWJdyAz+b8DuWS0nfXtSDqlDmqgin/lfzbkB01cuMEN66KWBlmur3YMp5nEDEEt5s23pllnAzB4EA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/echarts/-/echarts-5.4.2.tgz}
+    name: echarts
+    version: 5.4.2
+    dependencies:
+      tslib: registry.npmmirror.com/tslib@2.3.0
+      zrender: registry.npmmirror.com/zrender@5.4.3
+    dev: false
 
   registry.npmmirror.com/ejs@3.1.9:
     resolution: {integrity: sha512-rC+QVNMJWv+MtPgkt0y+0rVEIdbtxVADApW9JXrUVlzHetgcyczP/E7DJmWJ4fJCZF2cPcBk0laWO9ZHMG3DmQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ejs/-/ejs-3.1.9.tgz}
@@ -8720,6 +8741,12 @@ packages:
     version: 1.14.1
     dev: true
 
+  registry.npmmirror.com/tslib@2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz}
+    name: tslib
+    version: 2.3.0
+    dev: false
+
   registry.npmmirror.com/tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.5.0.tgz}
     name: tslib
@@ -9044,3 +9071,11 @@ packages:
       has-tostringtag: registry.npmmirror.com/has-tostringtag@1.0.0
       is-typed-array: registry.npmmirror.com/is-typed-array@1.1.10
     dev: true
+
+  registry.npmmirror.com/zrender@5.4.3:
+    resolution: {integrity: sha512-DRUM4ZLnoaT0PBVvGBDO9oWIDBKFdAVieNWxWwK0niYzJCMwGchRk21/hsE+RKkIveH3XHCyvXcJDkgLVvfizQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/zrender/-/zrender-5.4.3.tgz}
+    name: zrender
+    version: 5.4.3
+    dependencies:
+      tslib: registry.npmmirror.com/tslib@2.3.0
+    dev: false

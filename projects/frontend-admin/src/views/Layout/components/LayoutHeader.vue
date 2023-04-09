@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { Bell, Expand, FullScreen, Moon, Search, Setting, Sunny } from '@element-plus/icons-vue'
-import { useDark, useFullscreen } from '@vueuse/core'
+import { Bell, Expand, FullScreen, Search, Setting } from '@element-plus/icons-vue'
+import { useFullscreen } from '@vueuse/core'
 import { ElMessage } from 'element-plus'
-import { onMounted, ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import ThemePicker from './ThemePicker.vue'
+import LayoutDrawer from './LayoutDrawer.vue'
 import { useAppStore } from '@/stores'
 
 defineProps<{
   isMobile: boolean
 }>()
+
 const emit = defineEmits<{
   (e: 'expand'): void
 }>()
@@ -36,34 +37,6 @@ const isShowDrawer = ref(false)
 function openDrawer() {
   isShowDrawer.value = true
 }
-
-// 模式
-const isDarkMode = useDark()
-watch(isDarkMode, () => {
-  appStore.setSettingsProperty('dark', isDarkMode.value)
-})
-onMounted(() => {
-  isDarkMode.value = appStore.settings.dark
-})
-
-// 主题色
-const color = ref('')
-watch(color, () => {
-  appStore.setSettingsProperty('themeColor', color.value)
-  if (color.value)
-    document.documentElement.style.setProperty('--primary-dull', color.value)
-  else document.documentElement.style.removeProperty('--primary-dull')
-})
-onMounted(() => {
-  color.value = appStore.settings.themeColor
-})
-
-// 重置
-function onReset() {
-  isDarkMode.value = false
-  color.value = ''
-  appStore.resetSettings()
-}
 </script>
 
 <template>
@@ -83,13 +56,13 @@ function onReset() {
     </div>
     <el-row>
       <template v-if="!isMobile">
-        <el-button :icon="Search" circle />
-        <el-button :icon="Bell" circle />
-        <el-button :icon="FullScreen" circle @click="onToggleScreen" />
+        <el-link :icon="Search" :underline="false" />
+        <el-link :icon="Bell" :underline="false" />
+        <el-link :icon="FullScreen" :underline="false" @click="onToggleScreen" />
         <el-dropdown trigger="click" placement="bottom-end" @command="onToggleLang">
-          <el-button circle>
+          <el-link :underline="false">
             <LeIcon name="i18n" />
-          </el-button>
+          </el-link>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item command="en" :class="{ active: locale === 'en' }">
@@ -102,24 +75,17 @@ function onReset() {
           </template>
         </el-dropdown>
       </template>
-      <el-button :icon="Setting" circle @click="openDrawer" />
+      <div class="user">
+        <el-avatar
+          size="small"
+          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+        />
+        <span class="user-name">admin</span>
+      </div>
+      <el-link :underline="false" :icon="Setting" @click="openDrawer" />
     </el-row>
   </el-header>
-  <el-drawer v-model="isShowDrawer" size="260" :title="$t('sys.settings')">
-    <el-descriptions :column="1">
-      <el-descriptions-item :label="$t('sys.dark')">
-        <el-switch v-model="isDarkMode" :active-icon="Sunny" :inactive-icon="Moon" inline-prompt />
-      </el-descriptions-item>
-      <el-descriptions-item :label="$t('sys.themeColor')">
-        <ThemePicker v-model="color" :colors="['#FF6600', '#26A69A', '#EE1D52', '#8B5FBF', '#1DB954', '#C7B299', '#61261B']" />
-      </el-descriptions-item>
-    </el-descriptions>
-    <template #footer>
-      <el-button type="primary" @click="onReset">
-        {{ $t("sys.reset") }}
-      </el-button>
-    </template>
-  </el-drawer>
+  <LayoutDrawer v-model="isShowDrawer" />
 </template>
 
 <style lang="scss" scoped>
@@ -141,13 +107,24 @@ function onReset() {
   .el-row {
     display: flex;
     align-items: center;
-    .el-dropdown {
-    margin-left: 12px;
-    margin-right: 12px;
-    .el-button {
-      outline: none;
+    .el-link {
+      font-size: 18px;
+      color: var(--clear);
+      margin-left: 16px;
     }
-  }
+    .user {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      .el-avatar {
+        margin-left: 16px;
+      }
+      &-name {
+        font-size: 12px;
+        padding-top: 4px;
+        padding-left: 4px;
+      }
+    }
   }
 }
 :deep() {

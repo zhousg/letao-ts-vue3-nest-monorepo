@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@element-plus/icons-vue": "^2.1.0",
+    "echarts": "^5.4.2",
     "element-plus": "^2.3.2",
     "vue-i18n": "9.2.2"
   },
