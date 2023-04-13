@@ -19,3 +19,7 @@ export class RegisterUserDto extends LoginUserDto {
   }, { message: '手机号格式不对' })
   mobile: string
 }
+
+export class UserDto extends LoginUserDto {
+  id: number
+}

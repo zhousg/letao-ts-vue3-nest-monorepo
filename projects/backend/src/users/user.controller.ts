@@ -1,7 +1,6 @@
 import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common'
-import { LeUser } from '@letao/types'
 import { UserService } from './user.service'
-import { LoginUserDto, RegisterUserDto } from './user.dto'
+import { LoginUserDto, RegisterUserDto, UserDto } from './user.dto'
 
 @Controller('users')
 export class UserController {
@@ -18,18 +17,19 @@ export class UserController {
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: string) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.userService.remove(id)
   }
 
   @Post()
-  create(@Body() leUser: LeUser) {
-    return this.userService.save(leUser)
+  create(@Body() user: RegisterUserDto) {
+    return this.userService.save(user)
   }
 
-  @Patch()
-  update(@Body() leUser: LeUser) {
-    return this.userService.update(leUser)
+  @Patch(':id')
+  update(@Param('id', ParseIntPipe) id: number, @Body() user: UserDto) {
+    user.id = id
+    return this.userService.update(user)
   }
 
   @Post('/login')

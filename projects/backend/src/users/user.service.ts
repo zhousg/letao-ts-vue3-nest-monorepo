@@ -1,8 +1,7 @@
-import { LeUser } from '@letao/types'
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { LoginUserDto, RegisterUserDto } from './user.dto'
+import { LoginUserDto, RegisterUserDto, UserDto } from './user.dto'
 import { User } from './user.entity'
 
 @Injectable()
@@ -28,11 +27,11 @@ export class UserService {
     return this.usersRepository.save(user)
   }
 
-  async update(leUser: LeUser): Promise<void> {
-    await this.usersRepository.update({ id: leUser.id }, leUser)
+  async update(user: UserDto): Promise<void> {
+    await this.usersRepository.update({ id: user.id }, user)
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id)
   }
 }

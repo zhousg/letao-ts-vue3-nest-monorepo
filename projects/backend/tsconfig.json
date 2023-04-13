@@ -1,23 +1,4 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "module": "NodeNext",
-    "isolatedModules": false,
-    "preserveValueImports": false,
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictPropertyInitialization": false,
-    "paths": {
-      "@letao/types": ["../../libs/types/index.d.ts"]
-    }
-  }
+  "extends": "../../tsconfig.json",
+  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
 }

@@ -1,5 +1,5 @@
 {
-  "include": ["libs", "projects/**/*.vue", "projects/**/*.ts", "projects/**/*.d.ts"],
+  "include": ["libs"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "baseUrl": ".",
@@ -22,6 +22,16 @@
     "skipLibCheck": true,
     "composite": true,
     "verbatimModuleSyntax": true,
-    "declaration": true
-  }
+    "declaration": true,
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "incremental": true
+  },
+  "references": [
+    {"path":"projects/backend"},
+    {"path":"projects/frontend-admin"},
+    {"path":"projects/frontend-h5"}
+  ]
 }

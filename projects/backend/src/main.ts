@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
-import { NestExpressApplication } from '@nestjs/platform-express'
+import type { NestExpressApplication } from '@nestjs/platform-express'
 import { HttpExceptionFilter } from './app.filter'
 import { AppModule } from './app.module'
 
