@@ -8,10 +8,12 @@
     "build:h5": "vite build projects/frontend-h5",
     "dev:admin": "vite projects/frontend-admin",
     "dev:nest": "pnpm -F backend start:dev",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "type-check": "tsc --noEmit"
   },
   "lint-staged": {
     "*.{js,ts,vue,html}": [
@@ -51,7 +53,7 @@
     "sass": "^1.60.0",
     "stylelint": "^15.3.0",
     "stylelint-config-standard": "^31.0.0",
-    "typescript": "^5.0.3",
+    "typescript": "^5.0.4",
     "vite": "^4.2.1"
   }
 }

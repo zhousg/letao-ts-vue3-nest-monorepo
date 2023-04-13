@@ -6,7 +6,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: '@antfu',
+  extends: '@antfu/eslint-config',
   rules: {
     'no-console': [0],
   },

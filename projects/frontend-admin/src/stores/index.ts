@@ -7,3 +7,4 @@ const pinia = createPinia().use(persist)
 export default pinia
 
 export * from './modules/app'
+export * from './modules/user'

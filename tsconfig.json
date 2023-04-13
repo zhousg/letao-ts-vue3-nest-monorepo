@@ -1,20 +1,13 @@
 {
-  "include": [ 
-    "libs", 
-    "projects/**/*.vue",
-    "projects/**/*.ts"
-  ],
+  "include": ["libs", "projects/**/*.vue", "projects/**/*.ts", "projects/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@letao/utils": ["./libs/utils/index.ts"],
-      "@letao/types": ["./libs/utils/index.d.ts"]
+      "@letao/types": ["./libs/types/index.d.ts"]
     },
-    "lib": [
-      "ES2016",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2016", "DOM", "DOM.Iterable"],
     "types": ["node"],
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -28,6 +21,7 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "composite": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "declaration": true
   }
 }

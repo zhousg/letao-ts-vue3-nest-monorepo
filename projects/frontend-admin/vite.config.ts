@@ -5,8 +5,21 @@ import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { viteMockServe } from 'vite-plugin-mock'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  server: {
+    proxy: {
+      '/mock': {
+        target: '/',
+        changeOrigin: true,
+        rewrite: (path) => {
+          console.log(path)
+          return path.replace(/^\/mock/, '')
+        },
+      },
+    },
+  },
   plugins: [
     Vue(),
     Components({
@@ -15,6 +28,10 @@ export default defineConfig({
     createSvgIconsPlugin({
       iconDirs: [resolve(__dirname, 'src/icons')],
       symbolId: 'icon-[dir]-[name]',
+    }),
+    viteMockServe({
+      mockPath: 'src/mock',
+      localEnabled: command === 'serve',
     }),
   ],
   resolve: {
@@ -26,4 +43,4 @@ export default defineConfig({
     },
   },
 
-})
+}))

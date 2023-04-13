@@ -1,7 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import DashboardBar from './components/DashboardBar.vue'
 import DashboardCard from './components/DashboardCard.vue'
 import DashboardMap from './components/DashboardMap.vue'
+import { getDashboardEntryData } from '@/service/statistics'
+
+onMounted(async () => {
+  const res = await getDashboardEntryData()
+  console.log(res)
+})
 </script>
 
 <template>
@@ -44,10 +51,10 @@ import DashboardMap from './components/DashboardMap.vue'
       </el-col>
     </el-row>
     <el-row :gutter="20">
-      <el-col :span="16">
+      <el-col :sm="16">
         <DashboardBar />
       </el-col>
-      <el-col :span="8">
+      <el-col :sm="8">
         <DashboardMap />
       </el-col>
     </el-row>
@@ -56,10 +63,12 @@ import DashboardMap from './components/DashboardMap.vue'
 
 <style lang="scss" scoped>
 .dashboard {
-  &-entry {
+  &-page {
     .el-col {
       margin-bottom: 20px;
     }
+  }
+  &-entry {
     .sales {
       border-radius: 8px;
       background-image: linear-gradient(to right, var(--primary-clear), var(--primary-dull));
