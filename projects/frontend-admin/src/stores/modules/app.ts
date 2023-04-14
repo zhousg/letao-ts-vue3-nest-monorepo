@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useAppStore = defineStore('le-app', () => {
+export const useAppStore = defineStore('le-admin-app', () => {
   // 主题设置
   const def = {
     dark: false,

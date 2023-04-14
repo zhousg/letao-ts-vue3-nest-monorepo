@@ -1,11 +1,10 @@
 {
-  "include": ["libs"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
+    "rootDir": "/",
     "baseUrl": ".",
     "paths": {
-      "@letao/utils": ["./libs/utils/index.ts"],
-      "@letao/types": ["./libs/types/index.d.ts"]
+      "@letao/shared": ["packages/shared/src/index.ts"]
     },
     "lib": ["ES2016", "DOM", "DOM.Iterable"],
     "types": ["node"],
@@ -29,9 +28,5 @@
     "allowSyntheticDefaultImports": true,
     "incremental": true
   },
-  "references": [
-    {"path":"projects/backend"},
-    {"path":"projects/frontend-admin"},
-    {"path":"projects/frontend-h5"}
-  ]
+  "references": [{ "path": "projects/backend" }, { "path": "projects/frontend-admin" }, { "path": "projects/frontend-h5" }]
 }

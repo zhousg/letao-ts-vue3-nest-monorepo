@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "/",
     "paths": {
-      "@/*": ["./projects/frontend-admin/src/*"]
+      "@/*": ["./projects/frontend-h5/src/*"]
     }
   }
 }
