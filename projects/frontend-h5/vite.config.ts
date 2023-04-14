@@ -1,4 +1,3 @@
-import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
@@ -28,8 +27,6 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@letao/utils': resolve(__dirname, '../../libs/utils/index.ts'),
-      '@letao/types': resolve(__dirname, '../../libs/types/index.ts'),
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },

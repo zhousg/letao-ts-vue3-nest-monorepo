@@ -36,8 +36,6 @@ export default defineConfig(({ command }) => ({
   ],
   resolve: {
     alias: {
-      '@letao/utils': resolve(__dirname, '../../libs/utils/index.ts'),
-      '@letao/types': resolve(__dirname, '../../libs/types/index.ts'),
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
     },

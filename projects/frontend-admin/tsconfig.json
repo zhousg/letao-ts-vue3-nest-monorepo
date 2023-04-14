@@ -1,5 +1,6 @@
 {
   "extends": ["../../tsconfig.json"],
+  "include": ["env.d.ts", "components.d.ts", "src/**/*", "vite.config.*"],
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
@@ -7,8 +8,5 @@
       "@/*": ["src/*"]
     }
   },
-  "files": [
-    "src/locales/en.json",
-    "src/locales/zh.json"
-  ]
+  "files": ["src/locales/en.json", "src/locales/zh.json"]
 }
