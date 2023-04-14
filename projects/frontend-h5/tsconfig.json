@@ -1,9 +1,10 @@
 {
   "extends": ["../../tsconfig.json"],
   "compilerOptions": {
-    "rootDir": "/",
+    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./projects/frontend-h5/src/*"]
+      "@/*": ["src/*"]
     }
   }
 }

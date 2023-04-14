@@ -1,10 +1,9 @@
 {
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
-    "rootDir": "/",
     "baseUrl": ".",
     "paths": {
-      "@letao/shared": ["packages/shared/src/index.ts"]
+      "@letao/shared": ["packages/shared/index.ts"]
     },
     "lib": ["ES2016", "DOM", "DOM.Iterable"],
     "types": ["node"],
