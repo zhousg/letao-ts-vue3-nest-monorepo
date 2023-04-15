@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { Grid, HelpFilled, Setting, Shop, UserFilled } from '@element-plus/icons-vue'
+import {
+  Grid,
+  HelpFilled,
+  Setting,
+  Shop,
+  UserFilled,
+} from '@element-plus/icons-vue'
 </script>
 
 <template>
-  <el-menu
-    default-active="/dashboard"
-    router
-    :default-openeds="['/product']"
-  >
+  <el-menu default-active="/dashboard" router :default-openeds="['/product']">
     <el-menu-item index="/dashboard">
       <el-icon><HelpFilled /></el-icon>
       <span>{{ $t('menu.dashboard') }}</span>

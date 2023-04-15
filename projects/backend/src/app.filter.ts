@@ -9,13 +9,11 @@ export class HttpExceptionFilter {
     const request = ctx.getRequest()
     const status = exception.getStatus()
 
-    response
-      .status(status)
-      .json({
-        statusCode: status,
-        message: exception.message,
-        timestamp: new Date().toLocaleString(),
-        path: request.url,
-      })
+    response.status(status).json({
+      statusCode: status,
+      message: exception.message,
+      timestamp: new Date().toLocaleString(),
+      path: request.url,
+    })
   }
 }

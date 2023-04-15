@@ -3,10 +3,7 @@ import type {
   BarSeriesOption,
   LineSeriesOption,
 } from 'echarts/charts'
-import {
-  BarChart,
-  LineChart,
-} from 'echarts/charts'
+import { BarChart, LineChart } from 'echarts/charts'
 import type {
   // 组件类型的定义后缀都为 ComponentOption
   DatasetComponentOption,

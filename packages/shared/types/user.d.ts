@@ -1,7 +1,7 @@
 export interface LeUser {
-  id?: number,
+  id?: number
   username: string
-  mobile: string,
-  avatar: string,
+  mobile: string
+  avatar: string
   token: string
 }

@@ -45,7 +45,19 @@ const option = {
           color: '#f8f9fa',
         },
       },
-      data: ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      data: [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ],
     },
   ],
   series: [
@@ -80,12 +92,16 @@ const appStore = useAppStore()
 watch(
   () => appStore.settings.dark,
   async () => {
-    option.yAxis[0].splitLine.lineStyle.color = appStore.settings.dark ? '#353c39' : '#f8f9fa'
-    option.xAxis[0].axisLine.lineStyle.color = appStore.settings.dark ? '#353c39' : '#f8f9fa'
+    option.yAxis[0].splitLine.lineStyle.color = appStore.settings.dark
+      ? '#353c39'
+      : '#f8f9fa'
+    option.xAxis[0].axisLine.lineStyle.color = appStore.settings.dark
+      ? '#353c39'
+      : '#f8f9fa'
     await nextTick()
     chart.value.setOption(option)
   },
-  { immediate: true },
+  { immediate: true }
 )
 
 const list = [
@@ -119,7 +135,10 @@ const list = [
           <li v-for="(item, i) in list" :key="i" class="card-item">
             <span class="index">{{ i }}</span>
             <span class="label">{{ item.label }}</span>
-            <el-tag size="small" :type="item.trend.startsWith('+') ? 'success' : 'danger'">
+            <el-tag
+              size="small"
+              :type="item.trend.startsWith('+') ? 'success' : 'danger'"
+            >
               {{ item.trend }}
             </el-tag>
           </li>

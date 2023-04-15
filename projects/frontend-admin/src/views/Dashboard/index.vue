@@ -16,9 +16,7 @@ onMounted(async () => {
     <el-row :gutter="20" class="dashboard-entry">
       <el-col :xs="24" :sm="12" :lg="6">
         <div class="sales">
-          <h3 class="sales-title">
-            Sales Volume
-          </h3>
+          <h3 class="sales-title">Sales Volume</h3>
           <div class="sales-body">
             <span>&yen;</span>
             <span>394,188.12</span>
@@ -71,7 +69,11 @@ onMounted(async () => {
   &-entry {
     .sales {
       border-radius: 8px;
-      background-image: linear-gradient(to right, var(--primary-clear), var(--primary-dull));
+      background-image: linear-gradient(
+        to right,
+        var(--primary-clear),
+        var(--primary-dull)
+      );
       color: var(--primary-visible);
       padding: 30px;
       height: 132px;

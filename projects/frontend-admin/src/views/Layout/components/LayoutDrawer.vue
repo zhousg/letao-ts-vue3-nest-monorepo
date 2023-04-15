@@ -40,15 +40,31 @@ function onReset() {
   <el-drawer size="260" :title="$t('sys.settings')">
     <el-descriptions :column="1" direction="vertical">
       <el-descriptions-item :label="$t('sys.dark')">
-        <el-switch v-model="isDarkMode" :active-icon="Sunny" :inactive-icon="Moon" inline-prompt />
+        <el-switch
+          v-model="isDarkMode"
+          :active-icon="Sunny"
+          :inactive-icon="Moon"
+          inline-prompt
+        />
       </el-descriptions-item>
       <el-descriptions-item :label="$t('sys.themeColor')">
-        <ThemePicker v-model="color" :colors="['#FF6600', '#26A69A', '#EE1D52', '#8B5FBF', '#1DB954', '#C7B299', '#61261B']" />
+        <ThemePicker
+          v-model="color"
+          :colors="[
+            '#FF6600',
+            '#26A69A',
+            '#EE1D52',
+            '#8B5FBF',
+            '#1DB954',
+            '#C7B299',
+            '#61261B',
+          ]"
+        />
       </el-descriptions-item>
     </el-descriptions>
     <template #footer>
       <el-button type="primary" @click="onReset">
-        {{ $t("sys.reset") }}
+        {{ $t('sys.reset') }}
       </el-button>
     </template>
   </el-drawer>

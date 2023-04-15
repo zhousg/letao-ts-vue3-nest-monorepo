@@ -16,14 +16,17 @@ const isShowMenu = computed(() => isMobile.value && show.value)
     <Transition name="el-fade-in">
       <div v-if="isShowMenu" class="layer" @click="toggle()" />
     </Transition>
-    <el-aside class="layout-aside" :class="{ mobile: isMobile, show: isShowMenu }">
+    <el-aside
+      class="layout-aside"
+      :class="{ mobile: isMobile, show: isShowMenu }"
+    >
       <div class="logo">
         <LeIcon name="logo" />
       </div>
       <LayoutMenu class="menu" />
       <a href="javascript:;" class="logout">
         <el-icon><SwitchButton /></el-icon>
-        <span>{{ $t("sys.logout") }}</span>
+        <span>{{ $t('sys.logout') }}</span>
       </a>
     </el-aside>
     <el-container class="layout-container">
@@ -53,7 +56,7 @@ const isShowMenu = computed(() => isMobile.value && show.value)
       left: 0;
       top: 0;
       transform: translateX(-100%);
-      transition: all .5s;
+      transition: all 0.5s;
       z-index: 9999;
       &.show {
         transform: none;
@@ -62,7 +65,7 @@ const isShowMenu = computed(() => isMobile.value && show.value)
   }
   .layer {
     background: #000;
-    opacity: .4;
+    opacity: 0.4;
     width: 100%;
     top: 0;
     height: 100%;

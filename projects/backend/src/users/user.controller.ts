@@ -1,4 +1,14 @@
-import { BadRequestException, Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common'
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+} from '@nestjs/common'
 import { UserService } from './user.service'
 import { LoginUserDto, RegisterUserDto, UserDto } from './user.dto'
 
@@ -35,16 +45,14 @@ export class UserController {
   @Post('/login')
   async login(@Body() user: LoginUserDto) {
     const loginUser = await this.userService.findOneByPassword(user)
-    if (!loginUser)
-      throw new BadRequestException('用户或密码错误')
+    if (!loginUser) throw new BadRequestException('用户或密码错误')
     return loginUser
   }
 
   @Post('/register')
   async register(@Body() user: RegisterUserDto) {
     const registerUser = await this.userService.save(user)
-    if (!registerUser)
-      throw new BadRequestException('注册失败')
+    if (!registerUser) throw new BadRequestException('注册失败')
     return registerUser
   }
 }

@@ -9,19 +9,23 @@ window._AMapSecurityConfig = {
 }
 const appStore = useAppStore()
 const map = shallowRef()
-const capitals = ref([{
-  name: '北京市',
-  center: [116.407394, 39.904211],
-  data: 130,
-}, {
-  name: '重庆市',
-  center: [106.551643, 29.562849],
-  data: 50,
-}, {
-  name: '广东省',
-  center: [113.26641, 23.132324],
-  data: 80,
-}])
+const capitals = ref([
+  {
+    name: '北京市',
+    center: [116.407394, 39.904211],
+    data: 130,
+  },
+  {
+    name: '重庆市',
+    center: [106.551643, 29.562849],
+    data: 50,
+  },
+  {
+    name: '广东省',
+    center: [113.26641, 23.132324],
+    data: 80,
+  },
+])
 onMounted(async () => {
   AMapLoader.load({
     key: '4eed3d61125c8b9c168fc22414aaef7e',
@@ -29,7 +33,9 @@ onMounted(async () => {
   }).then((AMap) => {
     map.value = new AMap.Map('map', {
       center: [104, 32],
-      mapStyle: `amap://styles/${appStore.settings.dark ? 'grey' : 'whitesmoke'}`,
+      mapStyle: `amap://styles/${
+        appStore.settings.dark ? 'grey' : 'whitesmoke'
+      }`,
       zoom: 3,
       showLabel: false,
     })
@@ -59,8 +65,10 @@ onMounted(async () => {
 watch(
   () => appStore.settings.dark,
   () => {
-    map.value.setMapStyle(`amap://styles/${appStore.settings.dark ? 'grey' : 'whitesmoke'}`)
-  },
+    map.value.setMapStyle(
+      `amap://styles/${appStore.settings.dark ? 'grey' : 'whitesmoke'}`
+    )
+  }
 )
 </script>
 

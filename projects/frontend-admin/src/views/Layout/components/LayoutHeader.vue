@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { Bell, Expand, FullScreen, Search, Setting } from '@element-plus/icons-vue'
+import {
+  Bell,
+  Expand,
+  FullScreen,
+  Search,
+  Setting,
+} from '@element-plus/icons-vue'
 import { useFullscreen } from '@vueuse/core'
 import { ElMessage } from 'element-plus'
 import { ref } from 'vue'
@@ -20,8 +26,7 @@ const appStore = useAppStore()
 // 全屏
 const { isSupported, toggle } = useFullscreen()
 function onToggleScreen() {
-  if (!isSupported.value)
-    return ElMessage('浏览器不支持全屏')
+  if (!isSupported.value) return ElMessage('浏览器不支持全屏')
   toggle()
 }
 
@@ -46,11 +51,9 @@ function openDrawer() {
         <Expand />
       </el-icon>
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">
-          LeTao
-        </el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }"> LeTao </el-breadcrumb-item>
         <el-breadcrumb-item>
-          {{ $t("menu.dashboard") }}
+          {{ $t('menu.dashboard') }}
         </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
@@ -58,17 +61,31 @@ function openDrawer() {
       <template v-if="!isMobile">
         <el-link :icon="Search" :underline="false" />
         <el-link :icon="Bell" :underline="false" />
-        <el-link :icon="FullScreen" :underline="false" @click="onToggleScreen" />
-        <el-dropdown trigger="click" placement="bottom-end" @command="onToggleLang">
+        <el-link
+          :icon="FullScreen"
+          :underline="false"
+          @click="onToggleScreen"
+        />
+        <el-dropdown
+          trigger="click"
+          placement="bottom-end"
+          @command="onToggleLang"
+        >
           <el-link :underline="false">
             <LeIcon name="i18n" />
           </el-link>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item command="en" :class="{ active: locale === 'en' }">
+              <el-dropdown-item
+                command="en"
+                :class="{ active: locale === 'en' }"
+              >
                 English
               </el-dropdown-item>
-              <el-dropdown-item command="zh" :class="{ active: locale === 'zh' }">
+              <el-dropdown-item
+                command="zh"
+                :class="{ active: locale === 'zh' }"
+              >
                 中文简体
               </el-dropdown-item>
             </el-dropdown-menu>
